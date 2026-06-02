@@ -16,6 +16,9 @@ function getSafeCallbackUrl(raw: string | undefined): string {
 }
 
 export default async function LoginPage({ searchParams }: LoginPageProps) {
+  // Temporarily redirect to landing page while focusing on landing page development
+  redirect("/");
+
   const session = await auth();
   if (session?.user) {
     redirect(config.auth.callbackUrl);
@@ -25,7 +28,7 @@ export default async function LoginPage({ searchParams }: LoginPageProps) {
   const callbackUrl = getSafeCallbackUrl(params.callbackUrl);
 
   return (
-    <div className="card glass-dark border border-subtle w-full max-w-sm shadow-2xl">
+    <div className="card glass-light border border-subtle w-full max-w-sm shadow-2xl">
       <div className="card-body items-center text-center gap-6">
         {/* Logo + App Name */}
         <div className="flex flex-col items-center gap-3">

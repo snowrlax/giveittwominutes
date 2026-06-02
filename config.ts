@@ -65,10 +65,10 @@ const config = {
     callbackUrl: "/dashboard",
   },
 
-  // DaisyUI theme to use (light, dark, shipnext, cupcake, bumblebee, emerald, etc.)
+  // DaisyUI theme to use (light, dark, giveittwominutes, cupcake, bumblebee, emerald, etc.)
   // See full list: https://daisyui.com/docs/themes/
-  // Custom "shipnext" theme is a dark theme with coral accents
-  theme: "shipnext",
+  // Custom "giveittwominutes" theme is a light theme with warm cream/beige palette
+  theme: "giveittwominutes",
   // Available themes from daisyUI
   themes: themes,
 } as const;

@@ -23,7 +23,7 @@ export default async function DashboardPage() {
       </div>
 
       {/* Profile Card */}
-      <div className="card glass-dark border border-subtle max-w-md">
+      <div className="card glass-light border border-subtle max-w-md">
         <div className="card-body">
           <h2 className="card-title text-lg">Your Profile</h2>
           <div className="flex items-center gap-4 mt-2">
@@ -49,7 +49,7 @@ export default async function DashboardPage() {
       {/* Placeholder Cards */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
         {["Projects", "Activity", "Settings"].map((title) => (
-          <div key={title} className="card glass-dark border border-subtle">
+          <div key={title} className="card glass-light border border-subtle">
             <div className="card-body">
               <h3 className="card-title text-base">{title}</h3>
               <p className="text-3xl font-bold text-primary">—</p>

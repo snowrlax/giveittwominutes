@@ -29,10 +29,11 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      data-theme="shipnext"
+      data-theme="giveittwominutes"
       className={`${gabarito.variable} ${geistMono.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col bg-base-100 text-base-content">
+        <div className="noise-overlay opacity-[0.5]" aria-hidden="true" />
         <AuthProvider>{children}</AuthProvider>
       </body>
     </html>

@@ -1,51 +1,51 @@
 @import "tailwindcss";
 
 @plugin "daisyui" {
-  themes: shipnext --default;
+  themes: giveittwominutes --default;
 }
 
 @theme inline {
   --font-sans: var(--font-gabarito);
   --font-mono: var(--font-geist-mono);
 
-  /* Coral accent color */
-  --color-coral: #e78468;
-  --color-coral-hover: #d9735a;
+  /* Yellow accent color */
+  --color-yellow: #f0b420;
+  --color-yellow-hover: #d9a31c;
 }
 
-/* Custom dark theme */
-[data-theme="shipnext"] {
-  /* Base colors - deep dark backgrounds */
-  --color-base-100: #0f0f12;
-  --color-base-200: #16161a;
-  --color-base-300: #1e1e24;
-  --color-base-content: #e4e4e7;
+/* Custom light theme - warm cream/beige palette */
+[data-theme="giveittwominutes"] {
+  /* Base colors - warm cream backgrounds */
+  --color-base-100: #f9f2e9;
+  --color-base-200: #f2e8dc;
+  --color-base-300: #e8ddd0;
+  --color-base-content: #1e1e1e;
 
-  /* Neutral for surfaces and layering */
-  --color-neutral: #27272a;
-  --color-neutral-content: #fafafa;
+  /* Neutral for muted elements */
+  --color-neutral: #a79785;
+  --color-neutral-content: #ffffff;
 
-  /* Primary - coral/orange accent */
-  --color-primary: #e78468;
+  /* Primary - golden yellow */
+  --color-primary: #f0b420;
   --color-primary-content: #ffffff;
 
-  /* Secondary - muted purple/slate */
-  --color-secondary: #6366f1;
-  --color-secondary-content: #fafafa;
+  /* Secondary - purple */
+  --color-secondary: #b0a5f4;
+  --color-secondary-content: #1e1e1e;
 
-  /* Accent - teal for variety */
-  --color-accent: #2dd4bf;
-  --color-accent-content: #0f0f12;
+  /* Accent - coral red */
+  --color-accent: #f36c5a;
+  --color-accent-content: #ffffff;
 
-  /* Info/Success/Warning/Error states */
-  --color-info: #38bdf8;
-  --color-info-content: #0f0f12;
-  --color-success: #4ade80;
-  --color-success-content: #0f0f12;
-  --color-warning: #fbbf24;
-  --color-warning-content: #0f0f12;
-  --color-error: #f87171;
-  --color-error-content: #0f0f12;
+  /* Info/Success/Warning/Error states - adjusted for light background */
+  --color-info: #2563eb;
+  --color-info-content: #ffffff;
+  --color-success: #16a34a;
+  --color-success-content: #ffffff;
+  --color-warning: #ca8a04;
+  --color-warning-content: #ffffff;
+  --color-error: #dc2626;
+  --color-error-content: #ffffff;
 
   /* Shape tokens (daisyUI v5) */
   --radius-selector: 0.15rem;
@@ -70,15 +70,29 @@
 }
 
 /* Subtle glass effect for headers/cards */
-@utility glass-dark {
-  background: rgba(22, 22, 26, 0.8);
+@utility glass-light {
+  background: rgba(249, 242, 233, 0.85);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
 }
 
 /* Subtle border utility */
 @utility border-subtle {
-  border-color: rgba(255, 255, 255, 0.05);
+  border-color: rgba(30, 30, 30, 0.08);
+}
+
+/* Noise texture overlay */
+@utility noise-overlay {
+  z-index: 999;
+  pointer-events: none;
+  mix-blend-mode: color-burn;
+  will-change: opacity;
+  backface-visibility: hidden;
+  background-image: url("/images/noise.webp");
+  background-repeat: repeat;
+  background-size: 200px 200px;
+  position: fixed;
+  inset: 0%;
 }
 
 /* Remove daisyUI button focus ring and active border */
@@ -101,26 +115,26 @@
 }
 
 /* btn-primary customizations */
-[data-theme="shipnext"] .btn-primary {
+[data-theme="giveittwominutes"] .btn-primary {
   background-color: var(--color-primary);
   color: var(--color-primary-content);
   border: none;
   font-weight: 600;
 }
 
-[data-theme="shipnext"] .btn-primary:hover {
-  background-color: var(--color-coral-hover);
+[data-theme="giveittwominutes"] .btn-primary:hover {
+  background-color: var(--color-yellow-hover);
 }
 
 /* btn-ghost customizations */
-[data-theme="shipnext"] .btn-ghost {
+[data-theme="giveittwominutes"] .btn-ghost {
   background-color: transparent;
   color: var(--color-base-content);
 }
 
-[data-theme="shipnext"] .btn-ghost:hover {
-  background-color: rgba(231, 132, 104, 0.08);
-  color: var(--color-primary-content);
+[data-theme="giveittwominutes"] .btn-ghost:hover {
+  background-color: rgba(240, 180, 32, 0.12);
+  color: var(--color-base-content);
 }
 
 /* Thin scrollbar for sidebar */
