@@ -18,9 +18,12 @@ export default async function Header() {
   return (
     <header className="top-0 z-40 w-full">
       <nav className="z-50 w-full">
-        <div className="navbar min-h-14 p-8">
+        <div className="navbar min-h-14 p-6 md:p-8">
           {/* Left: hamburger (mobile) + logo */}
-          <div className="navbar-start">
+          <div className="navbar-start flex justify-between flex-1">
+            <Link href="/" className="font-body text-4xl sm:text-5xl font-medium w-full sm:max-w-[150px]">
+              {content.appName}
+            </Link>
             <div className="dropdown">
               <div
                 tabIndex={0}
@@ -80,14 +83,10 @@ export default async function Header() {
                 </li>
               </ul>
             </div>
-
-            <Link href="/" className="font-body text-5xl font-medium max-w-[150px]">
-              {content.appName}
-            </Link>
           </div>
 
           {/* Center: nav links (desktop only) */}
-          <div className="navbar-center h-full hidden lg:flex">
+          <div className="navbar-center h-full hidden lg:flex flex-1 justify-center">
             <ul className="menu menu-horizontal gap-1 px-1">
               {navLinks.map((link) => (
                 <li key={link.href}>
@@ -103,9 +102,9 @@ export default async function Header() {
           </div>
 
           {/* Right: CTAs */}
-          <div className="navbar-end gap-2">
+          <div className="navbar-end gap-2 hidden sm:flex flex-1 justify-end">
             {session?.user ? (
-              <div className="hidden lg:flex items-center gap-3">
+              <div className="hidden md:block items-center gap-3">
                 <div className="flex items-center gap-2">
                   {session.user.image && (
                     <Image
@@ -131,7 +130,7 @@ export default async function Header() {
               </div>
             ) : (
               <>
-                <div className="hidden lg:flex">
+                <div className="hidden md:block">
                   <ButtonSignIn />
                 </div>
               </>
