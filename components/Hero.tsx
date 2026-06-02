@@ -4,7 +4,7 @@ export default function Hero() {
   return (
     <section
       id="hero"
-      className="min-h-[80vh] flex flex-col items-center justify-start px-4 md:px-8 py-12 md:py-16"
+      className="min-h-[80vh] flex flex-col items-center justify-start px-4 md:px-8 py-24 md:py-16"
     >
       <div className="relative">
 
