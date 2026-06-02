@@ -5,10 +5,15 @@
 
 export const content = {
   // App identity
-  appName: "ShipNext",
+  appName: "Give It Two Minutes",
   appTagline: "Ship your SaaS",
   appTagSubline: "in days.",
   appTaglineHighlight: "Not weeks.",
+
+  // Hero section
+  heroHeadingLine1: "Just two minutes.",
+  heroHeadingLine2: "That's how habits start.",
+  heroSubheading: "A mindful space for your mental wellness journey",
 
   // SEO description
   appDescription:

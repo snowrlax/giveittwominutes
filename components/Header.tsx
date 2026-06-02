@@ -17,8 +17,8 @@ export default async function Header() {
 
   return (
     <header className="top-0 z-40 w-full">
-      <nav className="z-50 w-full border-b border-base-content/5 bg-base-100/80 backdrop-blur-xl">
-        <SectionWrapper className="navbar h-14">
+      <nav className="z-50 w-full">
+        <div className="navbar min-h-14 p-8">
           {/* Left: hamburger (mobile) + logo */}
           <div className="navbar-start">
             <div className="dropdown">
@@ -81,25 +81,13 @@ export default async function Header() {
               </ul>
             </div>
 
-            <Link href="/" className="flex gap-2 text-xl font-bold">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 24 24"
-                fill="currentColor"
-                className="h-6 w-6 text-primary"
-              >
-                <path
-                  fillRule="evenodd"
-                  d="M14.615 1.595a.75.75 0 0 1 .359.852L12.982 9.75h7.268a.75.75 0 0 1 .548 1.262l-10.5 11.25a.75.75 0 0 1-1.272-.71l1.992-7.302H3.75a.75.75 0 0 1-.548-1.262l10.5-11.25a.75.75 0 0 1 .913-.143Z"
-                  clipRule="evenodd"
-                />
-              </svg>
+            <Link href="/" className="font-body text-5xl font-medium max-w-[150px]">
               {content.appName}
             </Link>
           </div>
 
           {/* Center: nav links (desktop only) */}
-          <div className="navbar-center hidden lg:flex">
+          <div className="navbar-center h-full hidden lg:flex">
             <ul className="menu menu-horizontal gap-1 px-1">
               {navLinks.map((link) => (
                 <li key={link.href}>
@@ -149,7 +137,7 @@ export default async function Header() {
               </>
             )}
           </div>
-        </SectionWrapper>
+        </div>
       </nav>
     </header>
   );

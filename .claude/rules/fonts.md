@@ -2,36 +2,49 @@
 
 ## Current fonts
 
-- **Sans (primary):** Gabarito (variable, 400–900) via `--font-gabarito`
-- **Mono:** Geist Mono via `--font-geist-mono`
+- **Sans (default):** Inter via `--font-inter`
+- **Display:** Eighties Comeback (local) via `--font-eighties`
 
 ## Standard procedure to add or change a font
 
 ### Step 1: Import in `app/layout.tsx`
 
+**Google Fonts:**
 ```tsx
-import { FontName } from "next/font/google";
+import { Inter } from "next/font/google";
 
-const fontName = FontName({
-  variable: "--font-font-name",
+const inter = Inter({
+  variable: "--font-inter",
   subsets: ["latin"],
-  weight: "variable",   // for variable fonts — loads the full weight axis
   display: "swap",
 });
 ```
 
-- Import from `next/font/google` (self-hosted at build time, no runtime Google requests)
+**Local Fonts:**
+```tsx
+import localFont from "next/font/local";
+
+const eightiesComeback = localFont({
+  src: [
+    { path: "./fonts/EightiesComeback-LightUltraCondensed.otf", style: "normal" },
+    { path: "./fonts/EightiesComebackIt-LightUltraCondensed.otf", style: "italic" },
+  ],
+  variable: "--font-eighties",
+  display: "swap",
+});
+```
+
+- Google fonts: import from `next/font/google` (self-hosted at build time)
+- Local fonts: import `localFont` from `next/font/local`, store font files in `app/fonts/`
 - Use the `variable` option to register a CSS custom property
-- For variable fonts: set `weight: "variable"` to get the full axis
-- For static fonts: pass an array of specific weights like `weight: ["400", "700"]`
 - Always set `display: "swap"` to prevent FOIT (flash of invisible text)
 
 ### Step 2: Apply the CSS variable on `<html>`
 
-Add `fontName.variable` to the `<html>` className in `app/layout.tsx`:
+Add font variables to the `<html>` className in `app/layout.tsx`:
 
 ```tsx
-<html className={`${gabarito.variable} ${geistMono.variable} ${newFont.variable}`}>
+<html className={`${inter.variable} ${eightiesComeback.variable}`}>
 ```
 
 ### Step 3: Wire up in `app/globals.css`
@@ -40,17 +53,17 @@ Map the CSS variable to a Tailwind v4 design token in the `@theme inline` block:
 
 ```css
 @theme inline {
-  --font-sans: var(--font-gabarito);
-  --font-mono: var(--font-geist-mono);
-  --font-display: var(--font-new-name);  /* custom token */
+  --font-sans: var(--font-inter);
+  --font-display: var(--font-eighties);
 }
 ```
 
-Then use via Tailwind classes: `font-sans`, `font-mono`, or `font-display`.
+Then use via Tailwind classes: `font-sans` (default) or `font-display`.
 
 ## Rules
 
-- Never load fonts via `<link>` tags or CSS `@import url()` — always use `next/font/google`
+- Never load fonts via `<link>` tags or CSS `@import url()` — always use `next/font`
 - Never use `className` approach — always use `variable` + CSS custom property for Tailwind v4 integration
+- Store local font files in `app/fonts/`
 - Register every font variable in `@theme inline` in `globals.css`
 - Apply all font variables on `<html>` in `layout.tsx` — not on `<body>` or deeper elements

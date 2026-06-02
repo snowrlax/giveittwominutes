@@ -1,19 +1,22 @@
 import type { Metadata } from "next";
-import { Gabarito } from "next/font/google";
-import { Geist_Mono } from "next/font/google";
+import { Inter } from "next/font/google";
+import localFont from "next/font/local";
 import AuthProvider from "@/components/AuthProvider";
 import "./globals.css";
 
-const gabarito = Gabarito({
-  variable: "--font-gabarito",
+const inter = Inter({
+  variable: "--font-inter",
   subsets: ["latin"],
-  weight: "variable",
   display: "swap",
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
+const eightiesComeback = localFont({
+  src: [
+    { path: "./fonts/EightiesComeback-LightUltraCondensed.otf", style: "normal" },
+    { path: "./fonts/EightiesComebackIt-LightUltraCondensed.otf", style: "italic" },
+  ],
+  variable: "--font-eighties",
+  display: "swap",
 });
 
 export const metadata: Metadata = {
@@ -30,10 +33,10 @@ export default function RootLayout({
     <html
       lang="en"
       data-theme="giveittwominutes"
-      className={`${gabarito.variable} ${geistMono.variable} h-full antialiased`}
+      className={`${inter.variable} ${eightiesComeback.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col bg-base-100 text-base-content">
-        <div className="noise-overlay opacity-[0.5]" aria-hidden="true" />
+        <div className="noise-overlay " aria-hidden="true" />
         <AuthProvider>{children}</AuthProvider>
       </body>
     </html>
